@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#176b52">
+    <title>Alerta Cidade</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Alerta Cidade, início">
+        <span class="brand-icon" aria-hidden="true">AC</span>
+        <span>Alerta Cidade</span>
+      </a>
+      <span class="topbar-note">Cuidar da cidade começa com informação</span>
+    </header>
+
+    <main class="layout">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">MONITORAMENTO COLABORATIVO</p>
+        <h1 id="page-title">O que está acontecendo na sua cidade?</h1>
+        <p>Registre uma ocorrência ambiental ou urbana e compartilhe a informação com a comunidade.</p>
+      </section>
+
+      <section class="panel form-panel" aria-labelledby="form-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NOVO RELATO</p>
+            <h2 id="form-title">Conte o que você observou</h2>
+          </div>
+        </div>
+        <form id="report-form">
+          <label for="category">Tipo de ocorrência</label>
+          <select id="category" name="category" required>
+            <option value="" selected disabled>Selecione uma categoria</option>
+            <option>Poluição do ar</option>
+            <option>Trânsito</option>
+            <option>Alagamento</option>
+            <option>Desmatamento</option>
+            <option>Área de manancial</option>
+            <option>Outro</option>
+          </select>
+
+          <label for="location">Local</label>
+          <input id="location" name="location" maxlength="120" placeholder="Ex.: Rua das Flores, Centro" required>
+
+          <label for="description">Descrição</label>
+          <textarea id="description" name="description" rows="4" maxlength="500" placeholder="Descreva brevemente o que aconteceu" required></textarea>
+          <p class="field-hint">Até 500 caracteres.</p>
+
+          <button class="primary-button" type="submit">Publicar relato</button>
+          <p id="form-message" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="reports-section" aria-labelledby="reports-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">COMUNIDADE</p>
+            <h2 id="reports-title">Relatos recentes</h2>
+          </div>
+          <button id="refresh-button" class="secondary-button" type="button">Atualizar</button>
+        </div>
+        <p id="reports-message" class="message" role="status" aria-live="polite"></p>
+        <div id="report-list" class="report-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>Projeto acadêmico APS · Ciência da Computação · 2026</footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

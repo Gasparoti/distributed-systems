@@ -34,10 +34,34 @@ O trabalho escrito deverá incluir objetivo e motivação, introdução, fundame
 
 A formação prevista é de três alunos; grupos com número diferente dependem de aprovação da coordenação auxiliar.
 
-## Tecnologias
+## Aplicação inicial
 
-A plataforma, a linguagem, os serviços e as ferramentas serão registrados aqui após a decisão do grupo.
+Este repositório contém um protótipo web responsivo para registrar e consultar ocorrências ambientais e urbanas. A aplicação foi feita com HTML, CSS, JavaScript, Python e SQLite, sem dependências externas:
 
-## Estado do projeto
+- a interface funciona no navegador de um computador ou celular;
+- o navegador troca dados com uma API HTTP em Python;
+- os relatos ficam em um banco SQLite no computador que executa o servidor e são compartilhados entre os clientes que o acessam.
 
-**Em planejamento.** A proposta e as tecnologias ainda precisam ser definidas e aprovadas. Nenhuma funcionalidade da aplicação foi implementada neste estágio.
+O protótipo permite criar, listar e excluir relatos de poluição do ar, trânsito, alagamento, desmatamento, áreas de manancial e outras ocorrências. Cada relato inclui local, descrição e data. Não inclui mapa, login, localização automática nem verificação da veracidade dos relatos.
+
+## Como executar
+
+Requisito: Python 3.10 ou superior. Não é necessário instalar pacotes.
+
+```powershell
+py -3 app.py
+```
+
+Abra `http://localhost:8000` no computador. Para demonstrar em um celular conectado à mesma rede Wi-Fi, abra no navegador do celular `http://IP-DO-COMPUTADOR:8000`. O sistema operacional pode pedir autorização para conexões na rede privada.
+
+Os dados são salvos em `data/reports.sqlite3`. O servidor não tem autenticação nem criptografia; use apenas em uma rede confiável e não o exponha diretamente à internet.
+
+## Testes
+
+```powershell
+py -3 -m unittest discover -s tests -v
+```
+
+## Próximos passos
+
+Confirmar a proposta com a coordenação, definir a equipe e as tecnologias finais, testar em dispositivos, e evoluir o protótipo conforme os requisitos aprovados.
